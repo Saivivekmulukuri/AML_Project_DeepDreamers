@@ -1,0 +1,47 @@
+dataset_params:
+  # im_path: 'Cats_Dogs'
+  # im_path: 'data/train/images'
+  # im_path: '/users/pg23/sriharikb/AML_Project/AML_Project/datasets/cifar-10-batches-py/images'
+  im_path: '/users/pg23/sriharikb/AML_Project/AML_Project/datasets/4_class/images'
+
+diffusion_params:
+  num_timesteps : 105
+  beta_start : 0.0001
+  beta_end : 0.02
+
+model_params:
+  im_channels : 3
+  im_size : 64
+  down_channels : [32, 64, 128, 256]
+  mid_channels : [256, 256, 128]
+  down_sample : [True, True, False]
+  time_emb_dim : 128
+  num_down_layers : 2
+  num_mid_layers : 2
+  num_up_layers : 2
+  num_heads : 4
+
+train_params:
+  # task_name: 'cats_dogs_training'
+  # task_name: 'mnist_training'
+  # task_name: 'cifar10_training'
+  # task_name: '4_class_training'
+  # task_name: '4_class_training_small'
+  task_name: 'complete_4_classes_big'
+  # task_name: 'complete_4_classes_big_size'
+  batch_size: 16
+  num_epochs: 50
+  num_samples : 36
+  num_grid_rows : 6
+  lr: 0.0001
+  ckpt_name: 'ddpm_ckpt.pth'
+  ckpt_name_vae: 'ddpm_ckpt_vae_100.pth'
+
+vae_params:
+  encoder_hidden_size: 256
+  latent_size: 256
+  decoder_hidden_size: 256
+  # encoder_hidden_size: 512
+  # latent_size: 512
+  # decoder_hidden_size: 512
+  learning_rate: 0.0001
